@@ -16,6 +16,8 @@ add_executable(chat_server
   main.cpp
   server.h
   server.cpp
+  client.h
+  client.cpp
 )
 target_link_libraries(chat_server Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
 
