@@ -5,6 +5,7 @@
 #include <QTcpServer>
 #include <QThreadPool>
 #include <QDebug>
+#include "client.h"
 
 class Server : public QTcpServer
 {

@@ -8,9 +8,9 @@ Client::Client(QObject *parent, qintptr handle)
 
 void Client::run()
 {
-    QTcpSocket* socket = QTcpSocket(nullptr);
+    QTcpSocket* socket = new QTcpSocket(nullptr);
     if(!socket->setSocketDescriptor(this->_handle)){
-        qCritical() << socket->erroString();
+        qCritical() << socket->errorString();
         delete socket;
         return;
     }
@@ -30,7 +30,7 @@ void Client::run()
     response.append("\r\n");
     response.append(data);
 
-    socket->read(response);
+    socket->write(response);
     socket->waitForBytesWritten();
     socket->close();
     socket->deleteLater();

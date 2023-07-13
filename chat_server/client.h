@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QRunnable>
+#include <QTcpSocket>
 
 class Client : public QObject, public QRunnable
 {
