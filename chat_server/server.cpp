@@ -25,6 +25,7 @@ void Server::quit()
 void Server::incomingConnection(qintptr handle)
 {
     qInfo() << "Incoming Connection " << handle << " " << QThread::currentThread();
-    //TODO: finish this whan client class created.
-
+    Client client = new Client(nullptr, handle);
+    client->setAutoDelete(true);
+    pool.start(client);
 }
